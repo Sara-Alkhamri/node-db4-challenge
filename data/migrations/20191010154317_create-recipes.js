@@ -2,7 +2,7 @@
 exports.up = function(knex) {
   return knex.schema.createTable('recipes', tbl => {
       tbl.increments();
-      tbl.string('recipe_name', 128).notNullable();
+      tbl.string('recipe_name', 255).notNullable();
   })
   .createTable('steps', tbl => {
       tbl.increments();
@@ -16,10 +16,10 @@ exports.up = function(knex) {
   })
   .createTable('ingredients', tbl => {
       tbl.increments();
-      tbl.string('ingredient_name', 128)
+      tbl.string('ingredient_name', 255)
       .unique()
       .notNullable();
-      tbl.string('measurement', 128)
+      tbl.string('measurement_unit', 255)
       .notNullable();
   })
   .createTable('recipe_ingredients', tbl => {
